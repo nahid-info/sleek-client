@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
+import TShirts from './pages/T-Shirts.jsx'
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/t-shirts',
-        element: <></>,
+        element: <><TShirts /></>,
       },
       {
         path: '/polo-shirts',
