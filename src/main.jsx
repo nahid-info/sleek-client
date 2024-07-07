@@ -4,6 +4,8 @@ import App from './App.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import TShirts from './pages/T-Shirts.jsx'
+import PoloShirts from './pages/Polo-Shirts.jsx'
+import Casual from './pages/Casual.jsx'
 
 const router = createBrowserRouter([
   {
@@ -20,11 +22,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/polo-shirts',
-        element: <></>,
+        element: <><PoloShirts /></>,
       },
       {
         path: '/casual',
-        element: <></>,
+        element: <><Casual /></>,
       },
     ]
   }
