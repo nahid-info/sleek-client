@@ -24,7 +24,7 @@ const Home = () => {
 
       <div className=' border-b-2 border-blue-300'>
         <h2 className=' sm:text-2xl text-slate-600 flex items-end my-10'>T-Shirts <MdOutlineKeyboardDoubleArrowDown /></h2>
-        <div className="all-cards flex flex-wrap justify-evenly sm:gap-y-16 gap-4">
+        <div className="all-cards flex flex-wrap justify-evenly sm:gap-y-16 gap-y-8 gap-4">
           <Card />
           <Card />
           <Card />

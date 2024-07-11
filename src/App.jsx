@@ -10,7 +10,7 @@ function App() {
     <div>
       <Navbar />
       <Header />
-      <div className='z-0 px-4 md:px-20'>
+      <div className='z-0 px-2 md:px-20'>
         <Outlet />
       </div>
       <Footer />
