@@ -8,7 +8,7 @@ import { FaHome } from 'react-icons/fa'
 
 const Header = () => {
   return (
-    <ul className='bg-white min-w[320px] flex py-2 justify-center gap-8 sm:hidden overflow-scroll no-scrollbar'>
+    <ul className='bg-white flex py-2 px-4 justify-around overflow-scroll gap-8 sm:hidden no-scrollbar'>
       <li>
         <NavLink to='/' className=' flex flex-col items-center text-sm text-stone-500'>
           <FaHome className='border-2 border-indigo-200 rounded-full text-5xl text-stone-600 p-2' />Home
