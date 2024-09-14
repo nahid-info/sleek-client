@@ -42,10 +42,10 @@ const Login = () => {
   }
 
   return (
-    <div className=' user-login-page-container flex justify-center items-center'>
-      <form onSubmit={handleSubmit} className=' flex flex-col items-center border-green-300 border-[1px] rounded-2xl p-2 text-white justify-center gap-4'>
+    <div className=' user-login-page-container flex justify-center items-center bg-blue-400 bg-opacity-80'>
+      <form onSubmit={handleSubmit} className=' flex flex-col items-center bg-sky-400 border-green-300 border-[1px] rounded-2xl p-2 text-white justify-center gap-4'>
         <h2 className=' mb-5 text-xl text-stone-600'>Login to your account !</h2>
-        <input ref={username} type="text" placeholder='username' required />
+        <input ref={username} type="email" placeholder='Enter your e-mail' required />
         <input ref={password} type="password" placeholder='password' required />
         {invalidCred && <p className=' text-rose-800 text-md'>{invalidCred}</p>}
         <button type='submit' className=' bg-indigo-400 font-bold rounded-lg'>Login</button>

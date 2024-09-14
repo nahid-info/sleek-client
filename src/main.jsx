@@ -9,8 +9,14 @@ import PoloShirts from './pages/Polo-Shirts.jsx'
 import Casual from './pages/Casual.jsx'
 import Login from './pages/Login.jsx'
 
+// React Toastify Css
+import 'react-toastify/dist/ReactToastify.css';
 
 import AuthProvider, { AuthContext } from './store/AuthContext.jsx'
+import User from './pages/User.jsx'
+import Signup from './pages/Signup.jsx'
+import SingleProduct from './pages/SingleProduct.jsx'
+import Cart from './pages/Cart.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,12 +38,28 @@ const router = createBrowserRouter([
       {
         path: '/casual',
         element: <><Casual /></>,
-      }
+      },
+      {
+        path: '/user',
+        element: <><User /></>
+      },
+      {
+        path: '/cart',
+        element: <><Cart /></>
+      },
+      {
+        path: '/product/:id',
+        element: <><SingleProduct /></>
+      },
     ]
   },
   {
     path: '/login',
     element: <><Login /></>
+  },
+  {
+    path: '/signup',
+    element: <><Signup /></>
   }
 ])
 

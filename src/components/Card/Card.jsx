@@ -1,12 +1,20 @@
 import React, { useContext } from 'react'
-import img from '../../assets/image.png'
 import { TbCurrencyTaka } from 'react-icons/tb'
 import { AuthContext } from '../../store/AuthContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { IoStarSharp } from 'react-icons/io5'
 
 const Card = ({ product }) => {
 
-  const { url } = useContext(AuthContext)
+  const { url, token } = useContext(AuthContext)
+
+  const navigate = useNavigate()
+
+  const handleBuy = (e) => {
+    e.stopPropagation()
+    navigate(`/product/${product._id}`)
+
+  }
 
   return (
 
@@ -22,20 +30,29 @@ const Card = ({ product }) => {
     // </div>
 
     <div className='rounded-lg overflow-hidden w-[140px] sm:w-[250px] bg-stone-200'>
-      <img className='h-[187px] sm:h-[334px] w-full object-center object-cover' src={`${url}/uploads/${product.imgUrl}`} alt="img" />
-      <div className='h-[80px] transition-all flex flex-col w-full bg-slate-200'>
-        <div className=' flex sm:gap-2 items-center justify-center sm:text-lg '>
-          <h2 className=' text-stone-800 sm:font-medium flex items-center text-xl'><TbCurrencyTaka />{product.currentPrice}</h2>
-          <h2 className=' line-through text-stone-500 flex items-center text-sm'><TbCurrencyTaka />{product.oldPrice}</h2>
-          <p className=' text-green-500 flex items-center text-md font-medium'>{product.discount}%off</p>
+      <img onClick={handleBuy} className='h-[187px] sm:h-[334px] w-full object-center object-cover hover:scale-125 cursor-pointer transition-all' src={`${url}/uploads/${product.imgUrl}`} alt="img" />
+      <div className=' sm:h-[80px] h-[56px] flex flex-col w-full bg-slate-200 overflow-hidden relative cursor-default'>
+        <div className=' flex sm:gap-2 gap-1 items-center justify-center sm:text-lg '>
+          <h2 className=' text-stone-800 font-medium flex items-center text-md sm:text-xl'><TbCurrencyTaka />{product.currentPrice}</h2>
+          {product.discount > 0 ?
+            <>
+              <h2 className=' line-through text-stone-500 flex items-center text-xs sm:text-sm'><TbCurrencyTaka />{product.oldPrice}</h2>
+              <p className=' text-green-500 flex items-center text-sm sm:text-md font-medium'>{product.discount}%off</p>
+            </> :
+            <>
+              <IoStarSharp className=' text-indigo-500' />
+              <IoStarSharp className=' text-indigo-500' />
+            </>
+          }
+
         </div>
-        <div className=' px-4 bg-slate-200 h-[100%] flex justify-end items-center gap-5'>
-          <div className=' flex gap-2 text-lg font-medium text-gray-600 cursor-default'>
-            <p className=' w-7 border h-7 flex justify-center items-center border-blue-400 rounded-md'>M</p>
-            <p className=' w-7 border h-7 flex justify-center items-center border-blue-400 rounded-md'>L</p>
-            <p className=' w-7 border h-7 flex justify-center items-center border-blue-400 rounded-md'>XL</p>
+        <div className=' px-2 sm:px-4 bg-slate-200 h-[100%] flex justify-end items-center gap-2 sm:gap-5'>
+          <div className=' flex sm:gap-2 gap-1 sm:text-lg text-xs font-medium text-gray-600 cursor-default'>
+            <p className=' sm:w-7 w-4 h-5 border sm:h-7 flex justify-center items-center border-blue-400 rounded-sm sm:rounded-md'>M</p>
+            <p className=' sm:w-7 w-4 h-5 border sm:h-7 flex justify-center items-center border-blue-400 rounded-sm sm:rounded-md'>L</p>
+            <p className=' sm:w-7 w-4 px-2 h-5 border sm:h-7 flex justify-center items-center border-blue-400 rounded-sm sm:rounded-md'>XL</p>
           </div>
-          <Link className=' px-2 py-1 font-medium text-white rounded-lg border border-stone-400 bg-gray-600'>buy now</Link>
+          <button onClick={handleBuy} className=' sm:px-2 px-1 py-1 sm:hover:px-3 transition-all sm:py-1 text-xs sm:text-base font-medium text-white rounded-lg border border-stone-400 bg-black'>buy now</button>
         </div>
       </div>
     </div>
